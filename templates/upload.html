@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+    <h1>Subir Archivo</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label for="folder">Carpeta:</label>
+        <select id="folder" name="folder">
+            <option value="primero">Primero</option>
+            <option value="segundo">Segundo</option>
+            <option value="tercero">Tercero</option>
+            <option value="cuarto">Cuarto</option>
+            <option value="quinto">Quinto</option>
+        </select>
+        <br>
+        <label for="file">Archivo:</label>
+        <input type="file" id="file" name="file" required>
+        <br>
+        <button type="submit">Subir</button>
+    </form>
+    <br>
+    <button onclick="window.location.href='{{ url_for('index') }}'">Volver al Índice</button>
+</body>
+</html>

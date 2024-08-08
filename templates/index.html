@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facultad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Bienvenido a la Facultad</h1>
+    <div>
+        {% if session.logged_in %}
+            <form action="{{ url_for('logout') }}" method="post">
+                <button type="submit">Cerrar Sesión</button>
+            </form>
+        {% else %}
+            <button onclick="window.location.href='{{ url_for('login') }}'">Login</button>
+        {% endif %}
+        <button onclick="window.location.href='{{ url_for('upload') }}'">Subir Archivos</button>
+    </div>
+    <h2>Carpetas</h2>
+    <ul>
+        <li><a href="{{ url_for('folder', folder_name='primero') }}">Primero</a></li>
+        <li><a href="{{ url_for('folder', folder_name='segundo') }}">Segundo</a></li>
+        <li><a href="{{ url_for('folder', folder_name='tercero') }}">Tercero</a></li>
+        <li><a href="{{ url_for('folder', folder_name='cuarto') }}">Cuarto</a></li>
+        <li><a href="{{ url_for('folder', folder_name='quinto') }}">Quinto</a></li>
+    </ul>
+</body>
+</html>

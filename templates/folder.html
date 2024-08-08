@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carpeta: {{ folder_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Carpeta: {{ folder_name }}</h1>
+    <a href="{{ url_for('index') }}">Volver al Inicio</a>
+    <ul>
+        {% for file in files %}
+            <li>
+                {{ file[1] }}
+                <a href="{{ url_for('uploaded_file', filename=file[1]) }}" download>Descargar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
