@@ -49,6 +49,11 @@ def init_db():
         )
         conn.commit()
 
+        c.execute("SELECT * FROM users WHERE username = ?", ("sebastian",))
+        if not c.fetchone():
+            c.execute("INSERT INTO users (username, password) VALUES (?, ?)", ("sebastian", "stsesa"))
+            conn.commit()
+
 
 init_db()
 
